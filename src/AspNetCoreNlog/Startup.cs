@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using NLog;
 using NLog.Extensions.Logging;
 using NLog.Targets;
+using NLog.Web;
 
 namespace AspNetCoreNlog
 {
@@ -39,6 +40,8 @@ namespace AspNetCoreNlog
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddNLog();
+
+            app.AddNLogWeb();
 
             var configDir = "C:\\git\\damienbod\\AspNetCoreNlog\\Logs";
 
